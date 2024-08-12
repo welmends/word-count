@@ -11,7 +11,10 @@ const wordCounter = (content) => {
         .trim()
         .split(" ")
         .filter((word) => word !== "").length +
-      content.split("\n").length -
+      content
+        .trim()
+        .split("\n")
+        .filter((word) => word !== "").length -
       1
     );
   }
