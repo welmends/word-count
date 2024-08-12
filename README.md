@@ -35,4 +35,7 @@ make bash
 npm run test
 ```
 
-## Screen
+## Screens
+<img width="1510" alt="Screenshot 2024-08-12 at 10 01 51" src="https://github.com/user-attachments/assets/2684ab38-2401-45e7-9e0f-e2080fd074bb">
+
+
