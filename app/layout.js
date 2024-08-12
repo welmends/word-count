@@ -4,8 +4,9 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Share Notes",
-  description: "A simple way to share notes online",
+  title: "Word Count",
+  description:
+    "A simple form that counts the number of words in a block of text",
 };
 
 const RootLayout = ({ children }) => {
