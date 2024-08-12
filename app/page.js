@@ -28,7 +28,8 @@ const Home = () => {
     setContent(event.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     setWords(wordCounter(content));
     document.getElementById("result_modal").showModal();
   };
@@ -41,39 +42,42 @@ const Home = () => {
           A simple form that counts the number of words in a block of text
         </p>
       </div>
-      <div className="flew-grow flex flex-col items-center justify-between gap-4 mx-auto p-4">
+      <form
+        onSubmit={handleSubmit}
+        className="flew-grow flex flex-col items-center justify-between gap-4 mx-auto p-4"
+      >
         <textarea
           value={content}
           onChange={handleChange}
           className="flex-grow textarea textarea-bordered w-full bg-gray-200 resize-none rounded-md hover:textarea-primary"
           rows={20}
         />
-        <button onClick={handleSubmit} className="btn btn-primary mt-4">
+        <button type="submit" className="btn btn-primary mt-4">
           Submit
         </button>
-        <dialog id="result_modal" className="modal">
-          <div className="modal-box">
-            {words === 0 ? (
-              <div>
-                <h3 className="font-bold text-lg">Error</h3>
-                <p className="py-4">Your input should not be empty!</p>
-              </div>
-            ) : (
-              <div>
-                <h3 className="font-bold text-lg">Result</h3>
-                <p className="py-4">
-                  Your form contains <strong>{words}</strong> words!
-                </p>
-              </div>
-            )}
-            <div className="modal-action">
-              <form method="dialog">
-                <button className="btn">Close</button>
-              </form>
+      </form>
+      <dialog id="result_modal" className="modal">
+        <div className="modal-box">
+          {words === 0 ? (
+            <div>
+              <h3 className="font-bold text-lg">Error</h3>
+              <p className="py-4">Your input should not be empty!</p>
             </div>
+          ) : (
+            <div>
+              <h3 className="font-bold text-lg">Result</h3>
+              <p className="py-4">
+                Your form contains <strong>{words}</strong> words!
+              </p>
+            </div>
+          )}
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn">Close</button>
+            </form>
           </div>
-        </dialog>
-      </div>
+        </div>
+      </dialog>
     </div>
   );
 };
