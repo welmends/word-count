@@ -1,24 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const wordCounter = (content) => {
-  if (content.length === 0) {
-    return 0;
-  } else {
-    return (
-      content
-        .trim()
-        .split(" ")
-        .filter((word) => word !== "").length +
-      content
-        .trim()
-        .split("\n")
-        .filter((word) => word !== "").length -
-      1
-    );
-  }
-};
+import wordCounter from "./utils/wordCounter";
 
 const Home = () => {
   const [content, setContent] = useState("");
